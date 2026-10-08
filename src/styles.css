@@ -1,0 +1,203 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: "Bodoni Moda", "Didot", Georgia, serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-plum: var(--plum);
+  --color-ivory: var(--ivory);
+  --color-skin: var(--skin);
+  --color-champagne: var(--champagne);
+  --color-noir: var(--noir);
+  --color-ink: var(--ink);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.125rem;
+
+  /* VELORA palette */
+  --noir: oklch(0.2 0 0);
+  --ivory: oklch(0.954 0.012 84);
+  --skin: oklch(0.844 0.042 46);
+  --plum: oklch(0.29 0.075 352);
+  --champagne: oklch(0.754 0.062 78);
+  --ink: var(--noir);
+
+  --background: var(--ivory);
+  --foreground: var(--noir);
+  --card: oklch(0.972 0.009 84);
+  --card-foreground: var(--noir);
+  --popover: oklch(0.972 0.009 84);
+  --popover-foreground: var(--noir);
+  --primary: var(--plum);
+  --primary-foreground: var(--ivory);
+  --secondary: var(--skin);
+  --secondary-foreground: var(--noir);
+  --muted: oklch(0.915 0.016 78);
+  --muted-foreground: oklch(0.46 0.02 50);
+  --accent: var(--champagne);
+  --accent-foreground: var(--noir);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.2 0 0 / 0.14);
+  --input: oklch(0.2 0 0 / 0.2);
+  --ring: var(--champagne);
+  --chart-1: var(--plum);
+  --chart-2: var(--champagne);
+  --chart-3: var(--skin);
+  --chart-4: var(--noir);
+  --chart-5: oklch(0.6 0.05 60);
+  --sidebar: var(--ivory);
+  --sidebar-foreground: var(--noir);
+  --sidebar-primary: var(--plum);
+  --sidebar-primary-foreground: var(--ivory);
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--noir);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--champagne);
+}
+
+.dark {
+  --background: var(--noir);
+  --foreground: var(--ivory);
+  --card: oklch(0.24 0.01 350);
+  --card-foreground: var(--ivory);
+  --popover: oklch(0.24 0.01 350);
+  --popover-foreground: var(--ivory);
+  --primary: var(--champagne);
+  --primary-foreground: var(--noir);
+  --secondary: var(--plum);
+  --secondary-foreground: var(--ivory);
+  --muted: oklch(0.27 0.02 350);
+  --muted-foreground: oklch(0.75 0.02 60);
+  --accent: var(--champagne);
+  --accent-foreground: var(--noir);
+  --border: oklch(0.95 0.01 84 / 0.14);
+  --input: oklch(0.95 0.01 84 / 0.2);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: var(--champagne);
+    color: var(--noir);
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Custom cursor */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+@utility ink {
+  color: var(--ink);
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink);
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* Line-mask reveals: <span class="ln"><span>text</span></span> */
+.ln {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+.ln > span {
+  display: block;
+  will-change: transform;
+}
+
+.grain {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+@keyframes scroll-hint {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-hint {
+  animation: scroll-hint 2.4s cubic-bezier(0.7, 0, 0.3, 1) infinite;
+}
