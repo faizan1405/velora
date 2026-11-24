@@ -46,8 +46,9 @@ export function Nav() {
             Shop
           </Link>
         </div>
-        <Link to="/" className="font-serif text-2xl tracking-[0.18em] md:text-[1.7rem]">
-          VELORA
+        <Link to="/" className="flex items-center gap-2.5 font-serif text-2xl tracking-[0.18em] md:text-[1.7rem]">
+          <img src="/favicon.png" alt="VELORA logo" className="h-7 w-7 rounded-full object-cover shrink-0" />
+          <span>VELORA</span>
         </Link>
         <div className="flex flex-1 items-center justify-end gap-5">
           <button aria-label="Search" className="hidden md:block" onClick={() => toast("Search is coming soon.")}>
